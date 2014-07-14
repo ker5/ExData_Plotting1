@@ -63,8 +63,10 @@ function()
     
     library(datasets)
     ds1 <- ds0
+    Sys.setlocale("LC_TIME", "English")
     ds1_dt <- as.POSIXct(paste(ds1$Date, ds1$Time, sep = " "), format="%d/%m/%Y %H:%M:%S")
-    png(file="plot2.png")
+    
+    png(file="plot2t.png")
     plot(x=ds1_dt, y=ds1$Global_active_power, xlab=NULL, ylab=xlab1, type="l",lty=1)
     dev.off()
 }

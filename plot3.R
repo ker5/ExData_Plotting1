@@ -66,8 +66,13 @@ function()
     legend3 <- c("Sub_metering_1","Sub_metering_2","Sub_metering_3")
     color3 <- c("black","red","blue")
     
+    Sys.setlocale("LC_TIME", "English")
+    ds1_dt <- as.POSIXct(paste(ds1$Date, ds1$Time, sep = " "), format="%d/%m/%Y %H:%M:
+%S")
+    
     png(file="plot3.png")
-    plot(x=ds1_dt, y=ds1$Sub_metering_1, xlab=NULL, ylab=ylab3, type="l",lty=1, col="black")
+    plot(x=ds1_dt, y=ds1$Sub_metering_1, xlab=NULL, ylab=ylab3, type="l",lty=1, 
+         col="black")
     lines(x=ds1_dt, y=ds1$Sub_metering_2, xlab=NULL, type="l",lty=1, col="red")
     lines(x=ds1_dt, y=ds1$Sub_metering_3, xlab=NULL, type="l",lty=1, col="blue")
     legend("topright",legend = legend3, col = color3, lty=1)

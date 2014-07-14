@@ -60,6 +60,8 @@ function()
     
     ds0 <- data0
     #ds0 is 2880 obs. of 9 variables
+    Sys.setlocale("LC_TIME", "English")
+    ds1_dt <- as.POSIXct(paste(ds1$Date, ds1$Time, sep = " "), format="%d/%m/%Y %H:%M:%S")
     
     library(datasets)
     xlab4 <- "datetime"
